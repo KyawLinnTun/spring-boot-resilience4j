@@ -1,0 +1,13 @@
+resilience4j:
+  retry:
+    configs:
+      default:
+        maxAttempts: 3
+        waitDuration: 10000ms
+        retryExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+    instances:
+      greetingRetry:
+        baseConfig: default
+server:
+  port: 8081
